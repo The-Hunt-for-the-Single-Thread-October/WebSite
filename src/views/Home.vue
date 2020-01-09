@@ -13,6 +13,15 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  mounted() {
+    this.$client.joinOrCreate("my_room", {/* options */}).then(room => {
+      // eslint-disable-next-line no-console
+      console.log("joined successfully", room);
+    }).catch(e => {
+      // eslint-disable-next-line no-console
+      console.error("join error", e);
+    });
   }
 }
 </script>

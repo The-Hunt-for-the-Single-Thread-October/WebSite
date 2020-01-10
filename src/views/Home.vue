@@ -1,27 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="Home">
+        <nav-bar></nav-bar>
+        <home-page></home-page>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+    import HomePage from "../components/Home/HomePage";
+    import NavBar from "../components/NavBar";
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  },
-  mounted() {
-    this.$client.joinOrCreate("my_room", {/* options */}).then(room => {
-      // eslint-disable-next-line no-console
-      console.log("joined successfully", room);
-    }).catch(e => {
-      // eslint-disable-next-line no-console
-      console.error("join error", e);
-    });
-  }
-}
+    export default {
+        name: "Home",
+        components: {NavBar, HomePage}
+    }
 </script>
+
+<style>
+</style>

@@ -7,7 +7,7 @@
                     Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante<br/>
                     . Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
                     eleifend leo.</p>
-                <button type="button" class="btn btn-primary">Jouer !</button>
+                <button type="button" class="btn btn-primary" v-b-modal.start-game>Jouer !</button>
             </div>
         </div>
     </div>

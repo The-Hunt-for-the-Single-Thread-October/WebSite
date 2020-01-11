@@ -13,5 +13,14 @@ Vue.prototype.$client = new Client("ws://localhost:2567")
 new Vue({
     router,
     store,
-    render: h => h(App)
+    render: h => h(App),
+    methods:{
+        makeToast(errorMsg) {
+            this.$root.$bvToast.toast(errorMsg, {
+                title: "⚠ Erreur !",
+                variant: "danger",
+                noCloseButton: true
+            })
+        }
+    }
 }).$mount('#app')

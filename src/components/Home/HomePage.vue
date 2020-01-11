@@ -7,7 +7,7 @@
                     Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante<br/>
                     . Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
                     eleifend leo.</p>
-                <button type="button" class="btn btn-primary" v-b-modal.start-game>Jouer !</button>
+                <button type="button" class="btn btn-primary" @click="createGame">Jouer !</button>
             </div>
         </div>
     </div>
@@ -15,7 +15,19 @@
 
 <script>
     export default {
-        name: "HomePage"
+        name: "HomePage",
+        methods:{
+            createGame(){
+                if(this.$store.state.room === null){
+                    this.$client.create("my_room", {/* options */}).then(room => {
+                        this.$store.commit("saveRoom",room);
+                        this.$bvModal.show('start-game')
+                    }).catch(() => {
+                        this.$root.makeToast("Erreur lors de la création de la partie")
+                    });
+                }
+            }
+        }
     }
 </script>
 

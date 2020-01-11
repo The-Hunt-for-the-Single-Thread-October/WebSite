@@ -5,21 +5,19 @@ import VuexPersistence from "vuex-persist";
 Vue.use(Vuex)
 
 const vuexLocal = new VuexPersistence({
-  storage: window.localStorage
+    storage: window.localStorage
 })
 
 export default new Vuex.Store({
-  plugins:[vuexLocal.plugin],
-  state: {
-    room:null
-  },
-  mutations: {
-    saveRoom(state, room){
-      state.room = room;
-    }
-  },
-  actions: {
-  },
-  modules: {
-  }
+    plugins: [vuexLocal.plugin],
+    state: {
+        room: null
+    },
+    mutations: {
+        saveRoom(state, room) {
+            state.room = room;
+        }
+    },
+    actions: {},
+    modules: {}
 })

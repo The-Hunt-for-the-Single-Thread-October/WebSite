@@ -7,7 +7,7 @@
                     Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante<br/>
                     . Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
                     eleifend leo.</p>
-                <button type="button" class="btn btn-primary" @click="createGame">Jouer !</button>
+                <button type="button" class="btn btn-primary" @click="startGame">Jouer !</button>
             </div>
         </div>
     </div>
@@ -16,16 +16,19 @@
 <script>
     export default {
         name: "HomePage",
-        methods:{
-            createGame(){
-                if(this.$store.state.room === null){
-                    this.$client.create("my_room", {/* options */}).then(room => {
-                        this.$store.commit("saveRoom",room);
-                        this.$bvModal.show('start-game')
-                    }).catch(() => {
-                        this.$root.makeToast("Erreur lors de la création de la partie")
-                    });
+        methods: {
+            startGame() {
+                if (this.$store.state.room === null) {
+                    this.createGame()
                 }
+            },
+            createGame() {
+                this.$client.create("battleship", {/* options */}).then(room => {
+                    this.$store.commit("saveRoom", room);
+                    this.$bvModal.show('start-game')
+                }).catch(() => {
+                    this.$root.makeToast("Erreur lors de la création de la partie")
+                });
             }
         }
     }
@@ -43,7 +46,7 @@
         padding-right: 10vw;
         color: white;
 
-        div{
+        div {
             display: inline-block;
             text-align: center;
         }

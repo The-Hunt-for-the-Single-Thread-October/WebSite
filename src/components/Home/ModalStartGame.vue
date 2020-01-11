@@ -1,5 +1,5 @@
 <template>
-    <b-modal id="start-game" title="Démarrer la partie" centered cancel-title="Retour" ok-title="Démarrer" >
+    <b-modal id="start-game" title="Démarrer la partie" centered cancel-title="Retour" ok-title="Démarrer">
         <qrcode-vue :value="$store.state.room.id" v-if="$store.state.room"></qrcode-vue>
         <p>Scannez le QR code pour rejoindre la partie</p>
     </b-modal>
@@ -10,14 +10,14 @@
 
     export default {
         name: "ModalStartGame",
-        components:{
+        components: {
             QrcodeVue
         }
     }
 </script>
 
 <style scoped>
-    .modal-body > *{
+    .modal-body > * {
         text-align: center;
         margin: 1em;
     }

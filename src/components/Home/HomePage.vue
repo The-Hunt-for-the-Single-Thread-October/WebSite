@@ -25,8 +25,6 @@
             },
             createGame() {
                 this.$client.create("battleship", {/* options */}).then(room => {
-                    // eslint-disable-next-line no-console
-                    console.table(room)
                     this.$store.commit("saveRoom", room);
                 }).catch(() => {
                     this.$bvModal.hide('start-game')

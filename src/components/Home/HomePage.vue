@@ -19,14 +19,17 @@
         methods: {
             startGame() {
                 if (this.$store.state.room === null) {
+                    this.$bvModal.show('start-game')
                     this.createGame()
                 }
             },
             createGame() {
                 this.$client.create("battleship", {/* options */}).then(room => {
+                    // eslint-disable-next-line no-console
+                    console.table(room)
                     this.$store.commit("saveRoom", room);
-                    this.$bvModal.show('start-game')
                 }).catch(() => {
+                    this.$bvModal.hide('start-game')
                     this.$root.makeToast("Erreur lors de la création de la partie")
                 });
             }

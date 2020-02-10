@@ -7,14 +7,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '*',
+    redirect: '/'
+  },
+  {
     path: '/home',
     name: 'home',
     alias: '/',
     component: Home
-  },
-  {
-    path: '*',
-    //redirect: '/'
   },
   {
     path: '/rules',

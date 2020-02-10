@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "../views/Home";
+import Rules from "../views/Rules";
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,12 @@ const routes = [
   },
   {
     path: '*',
-    redirect: '/'
+    //redirect: '/'
+  },
+  {
+    path: '/rules',
+    name: 'rules',
+    component: Rules
   }
 ]
 

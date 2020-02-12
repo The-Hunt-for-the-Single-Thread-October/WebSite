@@ -39,6 +39,8 @@
     body {
         background-image: url("../../assets/background_home.jpg");
         background-size: cover;
+        background-repeat:no-repeat;
+
     }
 
     .content {

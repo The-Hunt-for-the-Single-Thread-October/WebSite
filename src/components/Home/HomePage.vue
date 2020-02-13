@@ -16,39 +16,19 @@
 <script>
     export default {
         name: "HomePage",
-        data: function () {
-            return {
-                idGame: null
-            }
-        },
         mounted() {
-            this.$io.on('connect', function() {
-                // Connected, let's sign-up for to receive messages for this roo
-
-            });
-
-            this.$io.emit('create');
-
-            this.$io.on('message', (data) => {
+            this.$io.on('roomJoined', room => {
                 // eslint-disable-next-line no-console
-                console.log('Incoming message:', data);
-                this.idGame = data;
+                console.log('Incoming message:', room);
+                this.$store.commit('saveRoom', room);
             });
         },
         methods: {
             startGame() {
                 if (this.$store.state.room === null) {
-                    this.$bvModal.show('start-game')
+                    this.$bvModal.show('start-game');
+                    this.$io.emit('create');
                 }
-
-            },
-            createGame() {
-                this.$client.create("battleship", {/* options */}).then(room => {
-                    this.$store.commit("saveRoom", room);
-                }).catch(() => {
-                    this.$bvModal.hide('start-game')
-                    this.$root.makeToast("Erreur lors de la création de la partie")
-                });
             }
         }
     }

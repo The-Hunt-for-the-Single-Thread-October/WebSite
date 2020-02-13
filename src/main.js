@@ -5,7 +5,7 @@ import store from './store'
 import BootstrapVue from "bootstrap-vue";
 import io from 'socket.io-client';
 
-Vue.prototype.$io = io('51.91.8.97:4000');
+Vue.prototype.$io = io('51.91.8.97:4001');
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false

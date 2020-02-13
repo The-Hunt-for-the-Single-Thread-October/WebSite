@@ -16,12 +16,31 @@
 <script>
     export default {
         name: "HomePage",
+        data: function () {
+            return {
+                idGame: null
+            }
+        },
+        mounted() {
+            this.$io.on('connect', function() {
+                // Connected, let's sign-up for to receive messages for this roo
+
+            });
+
+            this.$io.emit('create');
+
+            this.$io.on('message', (data) => {
+                // eslint-disable-next-line no-console
+                console.log('Incoming message:', data);
+                this.idGame = data;
+            });
+        },
         methods: {
             startGame() {
                 if (this.$store.state.room === null) {
                     this.$bvModal.show('start-game')
-                    this.createGame()
                 }
+
             },
             createGame() {
                 this.$client.create("battleship", {/* options */}).then(room => {

@@ -5,7 +5,7 @@
             <p>Création du QR code en cours...</p>
         </div>
         <div class="text-center" v-if="$store.state.room">
-            <qrcode-vue :value="$store.state.room.id"></qrcode-vue>
+            <qrcode-vue :value="JSON.stringify($store.state.room)"></qrcode-vue>
             <p>Scannez le QR code pour rejoindre la partie</p>
         </div>
 

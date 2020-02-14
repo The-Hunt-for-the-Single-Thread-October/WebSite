@@ -11,6 +11,7 @@
     import NavBar from "../components/NavBar";
     import ModalStartGame from "../components/Home/ModalStartGame";
 
+
     export default {
         name: "Home",
         components: {ModalStartGame, NavBar, HomePage}

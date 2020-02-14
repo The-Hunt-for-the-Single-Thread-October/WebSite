@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "../views/Home";
 import Rules from "../views/Rules";
+import DeroulementPartie from "../views/DeroulementPartie";
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/rules',
     name: 'rules',
     component: Rules
+  },
+  {
+    path: '/DeroulementPartie',
+    name: 'DeroulementPartie',
+    component: DeroulementPartie
   }
 ]
 

@@ -14,6 +14,8 @@
 </template>
 
 <script>
+
+
     export default {
         name: "HomePage",
         mounted() {
@@ -25,8 +27,9 @@
             startGame() {
                 this.$bvModal.show('start-game');
                 this.$io.emit('create');
+
             }
-        }
+        },
     }
 </script>
 

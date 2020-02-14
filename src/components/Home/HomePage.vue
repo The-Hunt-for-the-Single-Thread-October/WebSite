@@ -33,8 +33,14 @@
 <style lang="scss">
     body {
         background-image: url("../../assets/background_home.jpg");
+        width: 100%;
+        height: 90vh;
+        background-repeat: no-repeat;
+        background-position: center center;
         background-size: cover;
-        background-repeat:no-repeat;
+        background-attachment: fixed;
+
+
 
     }
 

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "../views/Home";
 import Rules from "../views/Rules";
+import Game from "../views/Game";
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/rules',
     name: 'rules',
     component: Rules
+  },
+  {
+    path: '/game',
+    name: 'game',
+    component: Game
   }
 ]
 

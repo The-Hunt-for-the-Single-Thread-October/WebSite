@@ -8,7 +8,7 @@
             <qrcode-vue :value="JSON.stringify(room)"></qrcode-vue>
             <p>Scannez le QR code pour rejoindre la partie</p>
             <b-spinner variant="primary" style="width: 1em; height: 1em;"></b-spinner>
-            <p style="display: inline;"> En attente de : Joueur{{ JSON.stringify(room.clients) }}</p>
+            <p style="display: inline;"> En attente de : Joueur {{ JSON.stringify(room.clients) }}</p>
         </div>
 
     </b-modal>

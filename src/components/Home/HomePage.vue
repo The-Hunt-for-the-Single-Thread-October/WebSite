@@ -1,12 +1,13 @@
 <template>
     <div class="HomePage">
         <div class="content">
-            <div>
-                <h2>The hunt for the single thread october</h2>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <br/>
-                    Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante<br/>
-                    . Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-                    eleifend leo.</p>
+            <div class="col-5">
+                <h1><strong>The Hunt for the Single Thread October</strong></h1>
+                <br>
+                <h4>« Être en mer, c'est être devant l'ennemi. Un navire qui fait une traversée est une armée qui livre une bataille. »
+                </h4>
+                <br/><h5>- Victor Hugo</h5>
+                <br><br>
                 <button type="button" class="btn btn-primary" @click="startGame">Jouer !</button>
             </div>
         </div>
@@ -19,18 +20,24 @@
         mounted() {
             this.$io.on('roomJoined', room => {
                 this.$store.commit('saveRoom', room);
+                if(room.clients == room.maxClients) {
+                    this.goMainPage();
+                }
             });
         },
         methods: {
             startGame() {
                 this.$bvModal.show('start-game');
                 this.$io.emit('create');
+            },
+            goMainPage() {
+                this.$router.push('/game');
             }
         }
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     body {
         background-image: url("../../assets/background_home.jpg");
         width: 100%;
@@ -39,9 +46,6 @@
         background-position: center center;
         background-size: cover;
         background-attachment: fixed;
-
-
-
     }
 
     .content {

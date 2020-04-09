@@ -20,7 +20,6 @@
 <style scoped>
     .navbar{
         background-color: #0b0d12;
-        height: 6vh;
     }
     a.nav-link{
         color: #5c8ad6 !important;
